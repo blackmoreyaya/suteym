@@ -1,0 +1,16 @@
+<div class="header">
+    <h2>{{ leyenda }}</h2>
+</div>
+<div class="body">
+    <div class="input-group">
+        <span (click)="cambiarValor(-5)" class="input-group-addon apuntador">
+      <i class="material-icons">remove</i>
+    </span>
+        <div class="form-line">
+            <input #inputProgreso name="progreso" [(ngModel)]="progreso" type="number" class="form-control date" max="100" min="1" (ngModelChange)="onChange($event)">
+        </div>
+        <span (click)="cambiarValor(+5)" class="input-group-addon apuntador">
+      <i class="material-icons">add</i>
+    </span>
+    </div>
+</div>
