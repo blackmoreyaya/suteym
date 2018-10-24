@@ -18,7 +18,7 @@
                         <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                         <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                        <li><a routerLink="/login"><i class="material-icons">input</i>Sign Out</a></li>
                     </ul>
                 </div>
             </div>
@@ -28,11 +28,18 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li>
-                    <a href="../../index.html">
-                        <i class="material-icons">home</i>
-                        <span>Home</span>
+                <li *ngFor="let menu of _sidebar.menu">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">{{ menu.icono }}</i>
+                        <span>{{ menu.titulo }}</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li *ngFor="let submenu of menu.submenu">
+                            <a [routerLink]="[submenu.url]" routerLinkActive="active">
+                                {{ submenu.titulo }}
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
