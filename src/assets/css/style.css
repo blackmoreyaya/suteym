@@ -10563,7 +10563,9 @@ fieldset[disabled] .form-control {
 /* Login Page ================================== */
 
 .login-page {
-    background-color: #00BCD4;
+    /* background-color: rgb(212, 0, 124); */
+    background-image: url("../images/suteym.JPG");
+    background-repeat: no-repeat;
     padding-left: 0;
     max-width: 360px;
     margin: 5% auto;

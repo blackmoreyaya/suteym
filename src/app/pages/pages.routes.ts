@@ -4,11 +4,13 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { ProgressComponent } from './progress/progress.component';
+import { LoginGuard } from './../services/guards/login.guard';
 
 const ROUTES: Routes = [
     {
         path: '',
         component: PagesComponent,
+        canActivate: [ LoginGuard ],
         children: [
             { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard', icono: 'dashboard' } },
             { path: 'graficas1', component: Graficas1Component, data: { titulo: 'Gráfica', icono: 'pie_chart' } },

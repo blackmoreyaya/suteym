@@ -13,6 +13,7 @@ import { ServiceModule } from './services/service.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component';
   BrowserModule,
     APP_ROUTING,
     PagesModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     ServiceModule
