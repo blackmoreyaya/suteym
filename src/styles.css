@@ -3,3 +3,7 @@
 .apuntador {
     cursor: pointer;
 }
+
+.w150 {
+    width: 200px;
+}

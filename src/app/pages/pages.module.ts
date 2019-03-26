@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -12,7 +13,10 @@ import { ChartsModule } from 'ng2-charts';
 // Temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+import { ProfileComponent } from './profile/profile.component';
 
+// Pipes Module
+import { PipesModule } from './../pipes/pipes.module';
 
 
 @NgModule({
@@ -22,7 +26,8 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
         Graficas1Component,
         ProgressComponent,
         IncrementadorComponent,
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        ProfileComponent
     ],
     exports: [
         PagesComponent,
@@ -33,10 +38,12 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
         GraficoDonaComponent
     ],
     imports: [
-        SharedModule,
+SharedModule,
         PAGES_ROUTING,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule,
+        CommonModule
     ]
 })
 

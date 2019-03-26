@@ -4,15 +4,15 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="assets/images/user.png" width="48" height="48" alt="User" />
+                <img [src]="usuario.img | imagen" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                <div class="email">john.doe@example.com</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ usuario.nombre }}</div>
+                <div class="email">{{ usuario.email }}</div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                        <li><a routerLink="/perfil" routerLinkActive="active"><i class="material-icons">person</i>Perfil</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
                         <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
@@ -27,7 +27,7 @@
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header">NAVEGADOR PRINCIPAL</li>
                 <li *ngFor="let menu of _sidebar.menu">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">{{ menu.icono }}</i>
