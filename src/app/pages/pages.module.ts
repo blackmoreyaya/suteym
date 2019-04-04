@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { PagesComponent } from './pages.component';
@@ -18,6 +18,13 @@ import { ProfileComponent } from './profile/profile.component';
 // Pipes Module
 import { PipesModule } from './../pipes/pipes.module';
 
+// Usuarios
+import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
+import { MantenimientoUsuarioComponent } from './usuarios/mantenimiento-usuario/mantenimiento-usuario.component';
+
+// Modal imágenes
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+
 
 @NgModule({
     declarations: [
@@ -27,7 +34,10 @@ import { PipesModule } from './../pipes/pipes.module';
         ProgressComponent,
         IncrementadorComponent,
         GraficoDonaComponent,
-        ProfileComponent
+        ProfileComponent,
+        CrearUsuarioComponent,
+        MantenimientoUsuarioComponent,
+        ModalUploadComponent
     ],
     exports: [
         PagesComponent,
@@ -38,12 +48,13 @@ import { PipesModule } from './../pipes/pipes.module';
         GraficoDonaComponent
     ],
     imports: [
-SharedModule,
+        SharedModule,
         PAGES_ROUTING,
         FormsModule,
         ChartsModule,
         PipesModule,
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
     ]
 })
 

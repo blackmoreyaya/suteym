@@ -1,0 +1,35 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated fadeIn">
+    <div class="card">
+        <div class="header">
+            <h2>
+                Registra un nuevo Usuario
+                <small>Datos usuario</small>
+            </h2>
+        </div>
+        <div class="body">
+            <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registrarUsuario()">
+                <label class="form-label">Nombre de usuario</label>
+                <div class="form-group">
+                    <div class="form-line">
+                        <input (keyup)="crearPassword()" formControlName="nombre" type="text" name="nombre" class="form-control" placeholder="Nombre de usuario" required>
+                    </div>
+                </div>
+                <label class="form-label">Correo electrónico</label>
+                <div class="form-group">
+                    <div class="form-line">
+                        <input formControlName="email" type="email" name="email" class="form-control" placeholder="Correo Electrónico" required>
+                    </div>
+                </div>
+                <label class="form-label">Las contraseñas se generaran con la palabra "suteym" y el primer nombre de usuario</label>
+                <div class="form-group">
+                    <div class="form-line">
+                        <p>{{ password }}</p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary m-t-15 waves-effect">
+                  <i class="material-icons">save</i> CREAR
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -103,9 +103,11 @@ export class UsuarioService {
     return this.http.put(url, usuario).pipe(
       map( (resp: any) => {
 
-        let usuarioDB: Usuario = resp.usuario;
+        if ( usuario._id === this.usuario._id ) {
+          let usuarioDB: Usuario = resp.usuario;
+          this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+        }
 
-        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
         swal('Usuario actualizado', usuario.nombre, 'success');
 
         return true;
@@ -129,6 +131,57 @@ export class UsuarioService {
                 console.log(resp);
               });
   }
+
+  crearusuario( usuario: Usuario ) {
+
+    let url = URL_SERVICIOS + '/usuario';
+    url += '?token=' + this.token;
+
+    return this.http.post( url, usuario ).pipe(
+                map( (resp: any) => {
+
+                  swal( 'Usuario registrado!', usuario.email, 'success' );
+                  return resp;
+
+                })
+    );
+
+  }
+
+
+  cargarUsuarios( desde: number = 0 ) {
+
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+
+    return this.http.get( url );
+
+  }
+
+
+  buscarUsuario( termino: string ) {
+
+    let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+    return this.http.get( url ).pipe(
+                map( (resp: any) => resp.usuarios )
+    );
+
+  }
+
+
+  borrarUsuario( id: string ) {
+
+    let url = URL_SERVICIOS + '/usuario/' + id;
+    url += '?token=' + this.token;
+
+    return this.http.delete( url ).pipe(
+                map( resp => {
+                  swal('Usuario borrado', 'Se ha eliminado el usuario correctamente', 'success');
+                  return true;
+                })
+            );
+
+  }
+
 
 
 }

@@ -14,6 +14,22 @@ export class SidebarService {
         { titulo: 'Progress', url: '/progress' },
         { titulo: 'Graficas', url: '/graficas1' },
       ]
+    },
+    {
+      titulo: 'Crear',
+      icono: 'add_circle_outline',
+      submenu: [
+        { titulo: 'Usuario', url: '/crearUsuario' },
+        { titulo: 'Agremiado', url: '/crearAgremiado' },
+        { titulo: 'Puesto', url: '/crearPuesto' },
+      ]
+    },
+    {
+      titulo: 'Mantenimiento',
+      icono: 'build',
+      submenu: [
+        { titulo: 'Usuario', url: '/mantenimientoUsuarios' }
+      ]
     }
   ];
 
